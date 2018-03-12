@@ -1,0 +1,499 @@
+@mixin tablets{
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+@mixin phones{
+	@media screen and (max-width: 480px) {
+		@content;
+	}
+}
+@mixin min{
+	@media screen and (max-width: 320px) {
+		@content;
+	}
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body, html{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+}
+h1{
+	font-size: 35px;
+}
+h2{
+	font-size: 22px;
+}
+.page_wrap{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	@include tablets{
+		flex-direction: column;
+	}
+}
+.content{
+	padding: 0 30px;
+	@include phones{
+		padding: 0 5px;
+	}
+
+}
+
+
+/*------Fonts-------*/
+@font-face {
+  font-family: 'Myriad';
+  src: url("../fonts/Myriad Pro Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal; 
+  }
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url("../fonts/OpenSans-Bold.ttf") format("ttf");
+  font-weight: bold;
+  font-style: normal; 
+  }
+
+/*------HEADER------*/
+.header {
+	width: 322px;
+	height: max-content;
+	background-color: #1f2229;
+	z-index: 10;
+	@include tablets{
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	.header_mobile{
+		display: none;
+		@include tablets{
+			display: block;
+			position: absolute;
+		    right: 60px;
+		    top: 6px;
+		}
+	}
+	.header_logo{
+		@include tablets{
+			height: 50px;
+			padding: 0;
+			jusctify-content: center;
+		}
+		@include min{
+			justify-content: flex-start;
+		}
+		height: 163px;
+		display: flex;
+		align-items: center;
+		padding-left: 30px;
+
+		.header_logo--text {
+			text-transform: uppercase;
+			color: #fff;
+			font-family: 'Arial', Sans-Serif;
+			font-size: 24px;
+			@include tablets{
+				margin: 0 auto;
+			}
+			@include min{
+				margin-left:5px;
+			}
+
+			&>span {
+				background-color: #fff;
+				color: #000;
+				height: 36px;
+				width: 140px;
+			}
+		}
+	}
+	.header_menu{
+		display: block;
+		transition: height .5s;
+		@include tablets{
+			height: 0;
+			overflow: hidden;
+		}
+		list-style-type: none;
+		.header_items{
+			height: 75px;
+			vertical-align: middle;
+			padding-left: 30px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			&:hover{
+				background-color: #2a2d37;
+			}
+			}
+			.header_items--active{
+				background-color: #2a2d37;
+			}
+			.header_link{
+				font-size: 18px;
+				font-family: "OpenSans";
+				color: rgb(255, 255, 255);
+				font-weight: bold;
+				text-decoration: none;
+				&:active{
+				color: rgba(255,255,255,.7);
+			}
+				&:focus{
+				color: rgba(255,255,255,.7);
+
+			}
+  		}
+	}
+}
+
+.header_menu--active{
+	height: 380px !important;
+	transition: height .5s;
+}
+/*------MAINCONTENT-----*/
+.main{
+	width: 654px;
+	background-color: #f7f8f8;
+	@include tablets{
+		width: 100%;
+		padding-top: 50px;
+	}
+
+	
+	.main_tittle{
+		height: auto;
+		background-color: #00aeef;
+		padding: 40px 30px 35px;
+		margin-bottom: 45px;
+		&>h1{
+			font-family: "OpenSans";
+			color: rgb(25, 57, 69);
+			//padding-top: 40px;
+			margin-bottom: 20px;
+		}
+	}
+	.main_pay{
+		font-size: 16px;
+		//padding-left: 30px;
+		margin-bottom: 45px;
+		& > h2{
+			font-size: 22px;
+			font-family: "OpenSans";
+			color: #000;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.pay_description{
+			display: flex;
+			justify-content: space-between;
+			width: 300px;
+				@include phones{
+					width: 95%;
+				}
+
+			.pay_l{
+				font-family: "Arial";
+				color: rgba(0,0,0,.6);
+				&>p{
+					line-height: 2;
+				}
+			}
+			.pay_r{
+				font-family: "Arial";
+				color: #000;
+				&>p{
+					line-height: 2;
+				}
+			}
+		}
+		
+	}
+	.main_form--tittle{
+		margin-bottom: 25px;
+		//padding-left: 30px;
+	}
+
+}
+
+/*------FORM-----*/
+.main_form{
+	position: relative;
+	font-family: "Arial", sans-serif;
+	font-size: 16px;
+	@include phones{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-left: 0;
+	}
+
+
+	.form_card{
+		position: relative;
+		margin-bottom: 35px;
+		background-color: #f7f8f8;
+		width: 56.8%;
+		min-width: 310px;
+  		height: auto;
+		border-radius: 10px;
+		border: 1px solid rgba(0,0,0,.1);
+		position: relative;
+		padding: 25px 15px 15px 15px;
+		z-index: 5;
+		@include phones{
+			width: 100%;
+			min-width: 286px;
+			margin: 0 auto 15px;
+			padding: 25px 5px 15px 5px;
+		}
+		@include min{
+			min-width: 245px;
+		}
+		.form_cardnumber--label{
+			line-height: 2;
+			color: rgba(0,0,0,.5);
+			font-size: 16px;
+  			font-family: "Arial";
+		}
+		.form_cardnumber{
+			width: 65px;
+			height: 42px;
+			font-size: 16px;
+  			font-family: "Arial";
+			border: 1px solid rgba(0,0,0,.1);
+			padding: 12px;
+			@include min{
+				width: 50px;
+				padding: 5px;
+			}
+		}
+		.form_cardtime{
+			display: flex;
+			justify-content: flex-start;
+			margin-bottom: 15px;
+			.form_cardselect--month{
+				height: 45px;
+				width: 70px;
+				position: relative;
+				margin-right: 20px;
+				background: #fff;
+				border: 1px solid rgba(0,0,0,.1);
+				&:after{
+					content: "";
+					pointer-events: none;
+					position: absolute;
+					top: 42%;
+					width: 16px;
+					height: 10px;
+					right: 8px;
+					background-image: url('../img/arrow.png');
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+			.form_cardselect--cardmonth{
+				border-color: transparent;
+				outline: none;
+				width: 100%;
+				height: 100%;
+				padding-left: 15px;
+				font-size: 16px;
+				font-family: "Arial";
+				background: transparent;
+				appearance: none;
+				
+				option{
+				font-size: 16px;
+				font-family: "Arial";
+				}
+			}
+			.form_cardselect--year{
+				@extend .form_cardselect--month;
+				width: 85px;
+			}
+		}
+		.form_username{
+			.form_username--input{
+				width: 91%;
+				max-width: 340px;
+				height: 42px;
+				padding-left: 12px;
+				font-size: 16px;
+				font-family: "Arial";
+				border: 1px solid rgba(0,0,0,.1);
+			}
+		}
+	}
+	.form_undercard{
+		@extend .form_card;
+		position: absolute;
+		left: 195px;
+		top: 25px;
+		width: 56.8%;
+		min-width: 300px;
+		height: 248px;
+		z-index: 1;
+		padding: 0;
+		margin-bottom: 35px;
+		@include phones{
+			width: 100%;
+			position: relative;
+			left: 0;
+			top: 0;
+			min-width: 286px;
+			margin: 0 auto 15px;
+		}
+		@include min{
+			min-width: 245px;
+		}
+
+		.undercard_row{
+			margin-top: 25px;
+			height: 45px;
+			width: 100%;
+			background-color: #e4e9ee;
+		}
+		.undercard_code{
+			padding-top: 10px;
+			position: absolute;
+			right: 15px;
+			.undercard_code--block{
+				position: absolute;
+				height: 51px;
+				width: 138px;
+				border: 2px solid rgba(0,0,0,.1);
+				background-color: #fff;
+				&:after{
+					content: "?";
+					position: absolute;
+					font-weight: bold;
+					border-radius: 50%;
+					line-height: 1.6;
+					text-align: center;
+					font-size: 16px;
+					font-family: "Arial";
+					height: 26px;
+					width: 26px;
+					top: 10px;
+					right: 10px;
+					border: 2px solid rgba(0,0,0,.2);
+					color: rgba(0,0,0,.2);
+
+				}
+				.undercard_code--input{
+					width: 100%;
+					height: 100%;
+					padding: 0 40px 0 15px;
+					font-size: 16px;
+					border-color: transparent;
+					font-family: "Arial";
+
+				}
+			}
+			.undercard_code--label{
+				font-size: 16px;
+				line-height: 2;
+				font-family: "Arial";
+				color: rgba(0,0,0,.5);
+			}
+		}
+	}
+	.form_but{
+		width: 173px;
+		height: 42px;
+		background-color: #99c200;
+		color: #fff;
+		border-radius: 5px;
+		border: none;
+		margin-bottom: 50px;
+		cursor: pointer;
+		&:hover{
+			background-color: #779604;
+			transition: background-color .5s;
+		}
+	}
+}
+
+/*----FOOTER-----*/
+
+.footer{
+	padding: 35px 0;
+	background-color: #373c43;
+	font-size: 12px;
+ 	font-family: "Arial";
+ 	color: rgba(255,255,255,.8);
+ 	line-height: 1.5;
+ 	p{
+ 		margin-bottom: 20px;
+ 		&:last-child{
+ 			margin-bottom: 0;
+ 		}
+ 	}
+}
+.header_mobile{
+	display: none;
+	.header_mobile_gamb{
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		height: 35px;
+		width: 35px;
+		cursor: pointer;
+		.header_mobile_gamb--block{
+			transition: transform .5s, opacity .5s;
+			width: 35px;
+			height: 5px;
+			border-radius: 10px;
+			background-color: #fff;
+		}
+	}
+}
+
+/*-----RESPONSIVE----*/
+@media (min-width: 481px )and (max-width: 545px){
+	.content{
+		padding-left: 5px;
+		
+	.form_undercard{
+		left: 160px;	
+	}	
+	}	
+}
+@media (min-width: 769px) and (max-width: 800px){
+	.content{
+		.form_undercard{
+			left: 160px;	
+		}	
+		}	
+	}
+
+/*-----Анимация кнопки меню-----*/
+.mobile_close{
+	.header_mobile_gamb--block{
+		transition: transform .3s, opacity .3s;
+		&:nth-child(1){
+			transform: translateY(245%) rotate(-45deg);
+		}
+		&:nth-child(2){
+			opacity: 0;
+		}
+		&:nth-child(3){
+			transform: translateY(-245%) rotate(45deg);
+		}
+	}
+	}
+
+

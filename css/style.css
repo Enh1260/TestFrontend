@@ -73,7 +73,7 @@ h2 {
         right: 60px;
         top: 6px; } }
   .header .header_logo {
-    height: 163px;
+    height: 170px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -130,6 +130,8 @@ h2 {
       cursor: pointer; }
       .header .header_menu .header_items:hover {
         background-color: #2a2d37; }
+        .header .header_menu .header_items:hover .header_link {
+          color: rgba(255, 255, 255, 0.7); }
     .header .header_menu .header_items--active {
       background-color: #2a2d37; }
     .header .header_menu .header_link {
@@ -343,6 +345,7 @@ h2 {
         background-color: #fff; }
         .main_form .form_undercard .undercard_code .undercard_code--block:after {
           content: "?";
+          cursor: help;
           position: absolute;
           font-weight: bold;
           border-radius: 50%;
@@ -359,7 +362,7 @@ h2 {
         .main_form .form_undercard .undercard_code .undercard_code--block .undercard_code--input {
           width: 100%;
           height: 100%;
-          padding: 0 40px 0 15px;
+          padding: 0 40px 0 30px;
           font-size: 16px;
           border-color: transparent;
           font-family: "Arial"; }
@@ -372,16 +375,18 @@ h2 {
     width: 173px;
     height: 42px;
     background-color: #99c200;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.02);
     color: #fff;
     border-radius: 5px;
     border: none;
     margin-bottom: 50px;
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-transition: background-color .5s;
+    -o-transition: background-color .5s;
+    transition: background-color .5s; }
     .main_form .form_but:hover {
-      background-color: #779604;
-      -webkit-transition: background-color .5s;
-      -o-transition: background-color .5s;
-      transition: background-color .5s; }
+      background-color: #779604; }
 
 /*----FOOTER-----*/
 .footer {
